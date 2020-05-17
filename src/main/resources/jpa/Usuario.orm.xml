@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+
+
+	<entity class="jjBan.je.user.Usuario" access="FIELD">
+		<table name="USERBIKES" />
+		<attributes>
+			<id name="id">
+				<!-- <generated-value strategy="IDENTITY"/> -->
+				<column length="16" name="USER_ID" />
+				<!-- <column name="USER_ID"/> -->
+			</id>
+			<basic name="mail" optional="false" />
+			<basic name="nombre" optional="false" />
+			<basic name="login" optional="false" />
+			<basic name="password" optional="false" />
+			 <many-to-one name="actividad" fetch="LAZY">
+            <join-column name="ACTIVID_ID"/>
+        	</many-to-one>
+<!-- 			<many-to-many name="actividades" -->
+<!-- 				target-entity="jjBan.je.core.Actividad" fetch="LAZY"> -->
+<!-- 				<join-table name="SUSCRIP_USER"> -->
+<!-- 					<join-column name="USER_ID" /> -->
+<!-- 					<inverse-join-column name="ACTIVID_ID" /> -->
+<!-- 				</join-table> -->
+<!-- 			</many-to-many> -->
+		</attributes>
+	</entity>
+</entity-mappings>
+
+
+  

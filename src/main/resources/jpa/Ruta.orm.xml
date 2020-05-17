@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+
+  <entity name= "Ruta" class="jjBan.je.core.Ruta" access="FIELD">
+    <table name="RUTASBIKES"/>
+    <attributes>
+      <id name="id">
+      <column name="RUTAS_ID"/>
+        <!-- <generated-value strategy="IDENTITY"/> -->
+      </id>
+      <basic name="nombre" />
+      <basic name="provincia" />
+      <basic name="poblacion" />
+       <basic name="descripcion" />
+       <basic name="fecha" />
+         <embedded  name= "datosTecnicos" />
+                 
+    </attributes>
+  </entity>
+</entity-mappings>
