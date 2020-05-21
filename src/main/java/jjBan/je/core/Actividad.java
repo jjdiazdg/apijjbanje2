@@ -8,6 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 
+
 import jjBan.je.exec.MainRutas;
 import jjBan.je.user.Usuario;
 
@@ -18,19 +19,30 @@ public class Actividad {
 	@Enumerated(EnumType.STRING)
 	TipoActividad tipoActividad;
 	private String nombreActividad;
-	List<Usuario> usuarios;
+//	@JsonIgnore
+	List<Usuario> usuarios =  new ArrayList<Usuario>();
 
-	
 	public String getId() {
 		return id;
 	}
-	@OneToMany(targetEntity=Usuario.class)
+
+	@OneToMany(targetEntity = Usuario.class)
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
+	
+//	public void setUsuarios(Usuario usuario) {
+//		
+//		this.usuarios.add(usuario);
+//		if (usuario.getActividad() != this) {
+//			usuario.setActividad(this);
+//		}
+//}
+	
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
+	
 	}
 
 	public Date getFecha() {
@@ -58,29 +70,38 @@ public class Actividad {
 	}
 
 	public Actividad() {
-		
+
 	}
+	
 	public Actividad(Date fecha, TipoActividad actividad, String nombreActividad) {
 		super();
 		this.fecha = fecha;
 		this.tipoActividad = actividad;
 		this.nombreActividad = nombreActividad;
-		this.id =  MainRutas.generaId("activ");
-		setUsuarios(new ArrayList<>());
+		this.id = MainRutas.generaId("activ");
+
+	}
+	
+	public Actividad(Date fecha, TipoActividad actividad, String nombreActividad, List<Usuario> usuarios) {
+		super();
+		this.fecha = fecha;
+		this.tipoActividad = actividad;
+		this.nombreActividad = nombreActividad;
+		this.id = MainRutas.generaId("activ");
+		this.usuarios = usuarios;
 	}
 
 	public void addUsuario(Usuario usuario) {
-        this.usuarios.add(usuario);
-        if (usuario.getActividad()!= this) {
-            usuario.setActividad(this);
-        }
-    }
+		this.usuarios.add(usuario);
+		if (usuario.getActividad() != this) {
+			usuario.setActividad(this);
+		}
+	}
 
 	@Override
 	public String toString() {
-		return "Actividad: " + getTipoActividad() 
-		+ ". Fecha: " + getFecha() + ". Nombre: " + getNombreActividad() + ". Suscriptores: " 
-		+ getUsuarios();
+		return "Actividad: " + getTipoActividad() + ". Fecha: " + getFecha() + ". Nombre: " + getNombreActividad()
+				+ ". Suscriptores: " + getUsuarios();
 	}
 
 }

@@ -34,15 +34,15 @@ public abstract class MixIns {
 		
 	}
 	
-//public static interface Actividad {
-//		
-//		@JsonProperty("fecha")
-//		@JsonDeserialize(using = LocalTimeDeserializer.class)
-//	    @JsonSerialize(using = LocalTimeSerializer.class)
-//		@JsonFormat(pattern = "hh:mm:ss")
-//		abstract LocalDateTime getFecha();
-//		
-//	}
+public static interface Actividad {
+		
+		@JsonProperty("fecha")
+		@JsonDeserialize(using = LocalTimeDeserializer.class)
+	    @JsonSerialize(using = LocalTimeSerializer.class)
+		@JsonFormat(pattern = "hh:mm:ss")
+		abstract LocalDateTime getFecha();
+		
+	}
 	
 	@JsonIgnoreType // Ignora un tipo por completo
 	public static interface IgnorarTipo {}

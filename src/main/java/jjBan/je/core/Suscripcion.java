@@ -1,64 +1,40 @@
 package jjBan.je.core;
 
-import java.util.List;
-
-import jjBan.je.exec.MainRutas;
-import jjBan.je.user.Usuario;
-
-
 public class Suscripcion {
 
-	Actividad actividad;
-	private String id;
-//	List<Usuario> usuarios;
+	String idActividad;
+	String idUsuario;
 
-	public String getId() {
-		return id;
-	}
-	
-	
-
-	public Actividad getActividad() {
-		return actividad;
+	public String getIdActividad() {
+		return idActividad;
 	}
 
-	public void setActividad(Actividad actividad) {
-		this.actividad = actividad;
+	public void setIdActividad(String idActividad) {
+		this.idActividad = idActividad;
 	}
-	
 
-//	public List<Usuario> getUsuarios() {
-//		return usuarios;
-//	}
-//
-//
-//
-//	public void setUsuarios(List<Usuario> usuarios) {
-//		this.usuarios = usuarios;
-//	}
+	public String getIdUsuario() {
+		return idUsuario;
+	}
 
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 
 	public Suscripcion() {
 
 	}
 
-//	public Suscripcion(Actividad actividad, List<Usuario> usuarios) {
-//		super();
-//		this.actividad = actividad;
-//		this.id =  MainRutas.generaId("sus");
-//		this.usuarios = usuarios;
-//	}
-
-	public Suscripcion(Actividad actividad) {
+	public Suscripcion(String idActividad, String idUsuario) {
 		super();
-		this.actividad = actividad;
-		this.id =  MainRutas.generaId("sus");
+		this.idActividad = idActividad;
+		this.idUsuario =  idUsuario;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Suscripcion: " + ", " + actividad;
+		return "Suscripciones: Actividad: " + idActividad + "Usuario: " + idUsuario ;
 	}
 		
 }

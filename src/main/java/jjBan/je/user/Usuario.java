@@ -18,11 +18,9 @@ public class Usuario implements Comparator<Usuario> {
 	@JsonIgnore
 	private String password;
 
-//	@JsonIgnore
-	@ManyToOne
 	private Actividad actividad;
 	
-	
+	@ManyToOne(targetEntity = Actividad.class)
 	public Actividad getActividad() {
 		return actividad;
 	}
@@ -82,6 +80,16 @@ public class Usuario implements Comparator<Usuario> {
 		this.password = password;
 	}
 
+	public Usuario(String nombre, String mail, String login, 
+			String password, Actividad actividad) {
+
+		this.id =  MainRutas.generaId("user");
+		this.nombre = nombre;
+		this.mail = mail;
+		this.login = login;
+		this.password = password;
+		this.actividad = actividad;
+	}
 
 	@Override
 	public String toString() {

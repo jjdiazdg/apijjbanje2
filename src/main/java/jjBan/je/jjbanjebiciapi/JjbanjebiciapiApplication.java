@@ -46,7 +46,7 @@ public class JjbanjebiciapiApplication {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.addMixIn(Ruta.class, MixIns.Rutas.class);
 		mapper.addMixIn(DatosTecnicos.class, MixIns.DatosTecnicos.class);
-//		mapper.addMixIn(Actividad.class, MixIns.Actividad.class);
+		mapper.addMixIn(Actividad.class, MixIns.Actividad.class);
 
 		RutasDAO rutasDAO = context.getBean(RutasDAO.class);
 		SerialJSON(mapper, rutasDAO, "./data/activities7.json");
@@ -103,7 +103,7 @@ public class JjbanjebiciapiApplication {
 		}
 
 	}
-
+	
 	static Usuario anadirUsuario() {
 
 		return new Usuario("Luis", "luis@hotmail.com", "admin", generaPass());
