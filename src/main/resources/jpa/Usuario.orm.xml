@@ -18,7 +18,7 @@
 			<basic name="mail" optional="false" />
 			<basic name="nombre" optional="false" />
 			<basic name="login" optional="false" />
-			<basic name="password" optional="false" />
+			<basic name="password" />
 			 <many-to-one name="actividad" fetch="LAZY">
             <join-column name="ACTIVID_ID"/>
         	</many-to-one>
